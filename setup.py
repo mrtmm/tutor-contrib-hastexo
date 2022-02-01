@@ -10,23 +10,9 @@ def load_readme():
         return f.read()
 
 
-def load_about():
-    about = {}
-    with io.open(
-        os.path.join(HERE, "tutorhastexo", "__about__.py"),
-        "rt",
-        encoding="utf-8",
-    ) as f:
-        exec(f.read(), about)  # pylint: disable=exec-used
-    return about
-
-
-ABOUT = load_about()
-
-
 setup(
     name="tutor-contrib-hastexo",
-    version=ABOUT["__version__"],
+    use_scm_version=True,
     url="https://github.com/myusername/tutor-contrib-hastexo",
     project_urls={
         "Code": "https://github.com/myusername/tutor-contrib-hastexo",

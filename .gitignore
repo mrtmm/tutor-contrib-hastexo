@@ -1,7 +1,10 @@
 .*.swp
 !.gitignore
-TODO
 __pycache__
 *.egg-info/
 /build/
 /dist/
+.idea
+.python-version
+.tox
+tests/tutor-sandbox/config.yml

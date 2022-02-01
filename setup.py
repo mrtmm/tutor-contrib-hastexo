@@ -30,7 +30,8 @@ setup(
     url="https://github.com/myusername/tutor-contrib-hastexo",
     project_urls={
         "Code": "https://github.com/myusername/tutor-contrib-hastexo",
-        "Issue tracker": "https://github.com/myusername/tutor-contrib-hastexo/issues",
+        "Issue tracker":
+            "https://github.com/myusername/tutor-contrib-hastexo/issues",
     },
     license="AGPLv3",
     author="Maari Tamm",

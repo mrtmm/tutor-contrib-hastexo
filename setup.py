@@ -6,7 +6,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 
 
 def load_readme():
-    with io.open(os.path.join(HERE, "README.rst"), "rt", encoding="utf8") as f:
+    with io.open(os.path.join(HERE, "README.md"), "rt", encoding="utf8") as f:
         return f.read()
 
 
@@ -36,6 +36,7 @@ setup(
     author="Maari Tamm",
     description="hastexo plugin for Tutor",
     long_description=load_readme(),
+    long_description_content_type='text/markdown',
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.6",

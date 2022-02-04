@@ -1,0 +1,65 @@
+############# guacd
+guacd:
+  image: {{ HASTEXO_GUACD_DOCKER_IMAGE }}
+  restart: unless-stopped
+  ports:
+    - 4822:4822
+
+############# hastexo-guacamole-client
+hastexo-xblock:
+  image: {{ HASTEXO_DOCKER_IMAGE }}
+  restart: unless-stopped
+  ports:
+    - 8095:8095
+  environment:
+    - HASTEXO_GUACAMOLE_DEBUG={{ HASTEXO_DEBUG }}
+    - HASTEXO_GUACAMOLE_SECRET_KEY={{ HASTEXO_SECRET_KEY }}
+    - HASTEXO_GUACAMOLE_DEFAULT_DB_NAME={{ OPENEDX_MYSQL_DATABASE }}
+    - HASTEXO_GUACAMOLE_DATABASE_USER={{ OPENEDX_MYSQL_USERNAME }}
+    - HASTEXO_GUACAMOLE_DATABASE_PASSWORD={{ OPENEDX_MYSQL_PASSWORD }}
+    - HASTEXO_GUACAMOLE_DATABASE_HOST={{ MYSQL_HOST }}
+    - HASTEXO_GUACAMOLE_DATABASE_PORT={{ MYSQL_PORT }}
+    - GUACD_HOSTNAME=guacd
+  depends_on:
+    - guacd
+    - mysql
+
+############# suspender
+hastexo-xblock-suspender:
+  image: {{ DOCKER_IMAGE_OPENEDX }}
+  environment:
+    SERVICE_VARIANT: lms
+    SETTINGS: ${TUTOR_EDX_PLATFORM_SETTINGS:-tutor.production}
+  command: ./manage.py lms suspender
+  restart: unless-stopped
+  volumes:
+    # Settings & config
+    - ../apps/openedx/settings/lms:/openedx/edx-platform/lms/envs/tutor:ro
+    - ../apps/openedx/settings/cms:/openedx/edx-platform/cms/envs/tutor:ro
+    - ../apps/openedx/config:/openedx/config:ro
+    # editable requirements
+    - ../build/openedx/requirements:/openedx/requirements
+  depends_on:
+    - lms
+    {% if RUN_MYSQL %}- mysql{% endif %}
+    {% if RUN_REDIS %}- redis{% endif %}
+
+############# reaper
+hastexo-xblock-reaper:
+  image: {{ DOCKER_IMAGE_OPENEDX }}
+  environment:
+    SERVICE_VARIANT: lms
+    SETTINGS: ${TUTOR_EDX_PLATFORM_SETTINGS:-tutor.production}
+  command: ./manage.py lms reaper
+  restart: unless-stopped
+  volumes:
+    # Settings & config
+    - ../apps/openedx/settings/lms:/openedx/edx-platform/lms/envs/tutor:ro
+    - ../apps/openedx/settings/cms:/openedx/edx-platform/cms/envs/tutor:ro
+    - ../apps/openedx/config:/openedx/config:ro
+    # editable requirements
+    - ../build/openedx/requirements:/openedx/requirements
+  depends_on:
+    - lms
+    {% if RUN_MYSQL %}- mysql{% endif %}
+    {% if RUN_REDIS %}- redis{% endif %}

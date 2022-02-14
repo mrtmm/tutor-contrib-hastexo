@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guacd
+  labels:
+    app.kubernetes.io/name: guacd
+spec:
+  type: ClusterIP
+  ports:
+    - port: 4822
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: guacd
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hastexo-xblock
+  labels:
+    app.kubernetes.io/name: hastexo-xblock
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8095
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: hastexo-xblock

@@ -1,3 +1,4 @@
+from .__about__ import __version__
 from glob import glob
 import os
 import pkg_resources
@@ -13,8 +14,9 @@ config = {
         "SECRET_KEY": "{{ 50|random_string }}",
     },
     "defaults": {
+        "VERSION": __version__,
         "GUACD_DOCKER_IMAGE": "guacamole/guacd:1.4.0",
-        "DOCKER_IMAGE": "hastexo",
+        "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}hastexo:{{ HASTEXO_VERSION }}",
         "XBLOCK_VERSION": "stable",
         "DEBUG": False,
     }

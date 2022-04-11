@@ -1,4 +1,0 @@
-"ADDL_INSTALLED_APPS": ["hastexo"],
-"XBLOCK_SETTINGS": {
-    "hastexo": {{ HASTEXO_XBLOCK_SETTINGS|tojson(indent=4) }}
-}

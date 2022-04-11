@@ -1,0 +1,2 @@
+XBLOCK_SETTINGS["hastexo"] = {{ HASTEXO_XBLOCK_SETTINGS }}
+INSTALLED_APPS.append("hastexo")

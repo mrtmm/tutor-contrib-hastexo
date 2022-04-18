@@ -1,0 +1,3 @@
+- name: hastexo-settings
+  files:
+    - plugins/hastexo/apps/hastexo/settings/settings.py

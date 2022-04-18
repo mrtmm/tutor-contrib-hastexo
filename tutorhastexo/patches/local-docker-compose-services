@@ -8,17 +8,13 @@ guacd:
 ############# hastexo-guacamole-client
 hastexo-xblock:
   image: {{ HASTEXO_DOCKER_IMAGE }}
+  environment:
+    DJANGO_SETTINGS_MODULE: hastexo_guacamole_client.tutor.settings
   restart: unless-stopped
   ports:
     - 8095:8095
-  environment:
-    - HASTEXO_GUACAMOLE_DEBUG={{ HASTEXO_DEBUG }}
-    - HASTEXO_GUACAMOLE_SECRET_KEY={{ HASTEXO_SECRET_KEY }}
-    - HASTEXO_GUACAMOLE_DEFAULT_DB_NAME={{ OPENEDX_MYSQL_DATABASE }}
-    - HASTEXO_GUACAMOLE_DATABASE_USER={{ OPENEDX_MYSQL_USERNAME }}
-    - HASTEXO_GUACAMOLE_DATABASE_PASSWORD={{ OPENEDX_MYSQL_PASSWORD }}
-    - HASTEXO_GUACAMOLE_DATABASE_HOST={{ MYSQL_HOST }}
-    - HASTEXO_GUACAMOLE_DATABASE_PORT={{ MYSQL_PORT }}
+  volumes:
+    - ../plugins/hastexo/apps/hastexo/settings:/hastexo-xblock/hastexo_guacamole_client/tutor:ro
   depends_on:
     - guacd
     - mysql

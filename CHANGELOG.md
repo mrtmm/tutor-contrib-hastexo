@@ -4,6 +4,11 @@ Unreleased
 * Refactor the way we add `HASTEXO_XBLOCK_SETTINGS` to the
   `XBLOCK_SETTINGS`. Add the settings under the `hastexo` key
   without overriding the general definition.
+* Fix terminal customisation options. Override the default
+  settings module for the `hastexo_guacamole_client`
+  so that the `XBLOCK_SETTINGS` will be present in the
+  `hastexo` container and thus, will make it possible to
+  define custom settings for the terminal window.
 
 ## Version 0.0.2 (2022-02-25)
 

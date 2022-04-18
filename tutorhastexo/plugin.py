@@ -15,7 +15,9 @@ config = {
     },
     "defaults": {
         "VERSION": __version__,
-        "GUACD_DOCKER_IMAGE": "guacamole/guacd:1.4.0",
+        "GUACD_VERSION": "1.4.0",
+        "GUACD_BASE_IMAGE": "guacamole/guacd:{{ HASTEXO_GUACD_VERSION }}",
+        "GUACD_DOCKER_IMAGE": "{{ HASTEXO_GUACD_BASE_IMAGE }}",
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}hastexo:{{ HASTEXO_VERSION }}",
         "XBLOCK_VERSION": "stable",
         "DEBUG": False,
@@ -24,10 +26,12 @@ config = {
 
 hooks = {
     "build-image": {
-        "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}"
+        "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}",
+        "guacd": "{{ HASTEXO_GUACD_DOCKER_IMAGE }}",
     },
     "remote-image": {
-        "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}"
+        "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}",
+        "guacd": "{{ HASTEXO_GUACD_DOCKER_IMAGE }}",
     }
 }
 

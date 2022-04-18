@@ -74,6 +74,30 @@ Configuration
   [guacd](https://hub.docker.com/r/guacamole/guacd) version. (default:
   `guacamole/guacd:1.4.0`)
 
+Using a custom terminal font
+----------------------------
+
+When using the `terminal_font_name` setting via `HASTEXO_XBLOCK_SETTINGS`,
+the requested font *must be installed in the guacd container*. This means that you'll
+need to build a custom `guacd` image. For that:
+* Define the `HASTEXO_GUACD_DOCKER_IMAGE` in your `config.yml` to override using the
+  default upstream image.
+* Create a YAML plugin to patch [hastexo-guacd-dockerfile]() and add your font installation
+  steps. For example:
+  ```
+  name: guacdfonts
+  version: 1.0.0
+  patches:
+    hastexo-guacd-dockerfile: |
+      USER root
+      RUN apt update && apt install -y fonts-hack-ttf
+  ```
+* Enable the YAML plugin and save your configuration changes (`tutor config save`)
+* Build the custom docker image for `guacd`:
+  ```
+  tutor images build guacd
+  ```
+
 License
 -------
 

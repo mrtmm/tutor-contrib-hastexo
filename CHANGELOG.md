@@ -9,6 +9,11 @@ Unreleased
   so that the `XBLOCK_SETTINGS` will be present in the
   `hastexo` container and thus, will make it possible to
   define custom settings for the terminal window.
+* Add support for installing custom fonts for terminal.
+  The required font will have to be installed in the
+  `guacd` container. Add an option to build a custom
+  `guacd` image while keeping the option of using the
+  upstream base image in case a custom font is not needed.
 
 ## Version 0.0.2 (2022-02-25)
 

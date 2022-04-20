@@ -1,4 +1,4 @@
-Unreleased
+Version 0.1.0 (2022-04-20)
 -----------------------------
 
 * Refactor the way we add `HASTEXO_XBLOCK_SETTINGS` to the

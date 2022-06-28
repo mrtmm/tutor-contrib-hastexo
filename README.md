@@ -75,6 +75,10 @@ Configuration
   `guacamole/guacd:1.4.0`)
 * `HASTEXO_REPLICA_COUNT`: Number of replicas for the `hastexo-xblock` service.
   (default: `1`)
+* `HASTEXO_ENABLE_SUSPENDER`: If `True`, run 1 pod in the `hastexo-xblock-suspender` deployment. 
+  If `False`, run 0 pods, effectively disabling the deployment. (Default: `True`).
+* `HASTEXO_ENABLE_REAPER`: If `True`, run 1 pod in the `hastexo-xblock-reaper` deployment. 
+  If `False`, run 0 pods, effectively disabling the deployment. (Default: `True`).
 
 Using a custom terminal font
 ----------------------------

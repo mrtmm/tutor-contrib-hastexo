@@ -40,6 +40,8 @@ hastexo-xblock-suspender:
     - lms
     {% if RUN_MYSQL %}- mysql{% endif %}
     {% if RUN_REDIS %}- redis{% endif %}
+  deploy:
+    replicas: {% if HASTEXO_ENABLE_SUSPENDER %}1{% else %}0{% endif %}
 
 ############# reaper
 hastexo-xblock-reaper:
@@ -60,3 +62,6 @@ hastexo-xblock-reaper:
     - lms
     {% if RUN_MYSQL %}- mysql{% endif %}
     {% if RUN_REDIS %}- redis{% endif %}
+  deploy:
+    replicas: {% if HASTEXO_ENABLE_REAPER %}1{% else %}0{% endif %}
+

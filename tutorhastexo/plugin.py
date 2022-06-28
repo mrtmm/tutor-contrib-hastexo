@@ -21,7 +21,9 @@ config = {
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}hastexo:{{ HASTEXO_VERSION }}",
         "XBLOCK_VERSION": "stable",
         "DEBUG": False,
-        "REPLICA_COUNT": 1
+        "REPLICA_COUNT": 1,
+        "ENABLE_REAPER": True,
+        "ENABLE_SUSPENDER": True
     }
 }
 

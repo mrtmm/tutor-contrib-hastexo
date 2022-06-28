@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: hastexo-xblock-suspender
 spec:
-  replicas: 1
+  replicas: {% if HASTEXO_ENABLE_SUSPENDER %}1{% else %}0{% endif %}
   selector:
     matchLabels:
       app.kubernetes.io/name: hastexo-xblock-suspender
@@ -45,7 +45,7 @@ metadata:
   labels:
     app.kubernetes.io/name: hastexo-xblock-reaper
 spec:
-  replicas: 1
+  replicas: {% if HASTEXO_ENABLE_REAPER %}1{% else %}0{% endif %}
   selector:
     matchLabels:
       app.kubernetes.io/name: hastexo-xblock-reaper

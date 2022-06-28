@@ -1,5 +1,7 @@
 Unreleased
 -----------------------------
+* Add options to enable/disable the `suspender` and
+  `reaper` services.
 * Add an option to scale the number of instances via
   `HASTEXO_REPLICA_COUNT` setting.
 

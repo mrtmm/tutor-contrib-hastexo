@@ -73,6 +73,8 @@ Configuration
 * `HASTEXO_GUACD_DOCKER_IMAGE`:
   [guacd](https://hub.docker.com/r/guacamole/guacd) version. (default:
   `guacamole/guacd:1.4.0`)
+* `HASTEXO_REPLICA_COUNT`: Number of replicas for the `hastexo-xblock` service.
+  (default: `1`)
 
 Using a custom terminal font
 ----------------------------

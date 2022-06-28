@@ -1,3 +1,8 @@
+Unreleased
+-----------------------------
+* Add an option to scale the number of instances via
+  `HASTEXO_REPLICA_COUNT` setting.
+
 Version 0.1.0 (2022-04-20)
 -----------------------------
 

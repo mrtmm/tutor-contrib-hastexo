@@ -107,7 +107,7 @@ metadata:
   labels:
     app.kubernetes.io/name: hastexo-xblock
 spec:
-  replicas: 1
+  replicas: {{ HASTEXO_REPLICA_COUNT }}
   selector:
     matchLabels:
       app.kubernetes.io/name: hastexo-xblock

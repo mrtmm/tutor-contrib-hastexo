@@ -12,12 +12,14 @@ hastexo-xblock:
     DJANGO_SETTINGS_MODULE: hastexo_guacamole_client.tutor.settings
   restart: unless-stopped
   ports:
-    - 8095:8095
+    - "8085-8095:8095"
   volumes:
     - ../plugins/hastexo/apps/hastexo/settings:/hastexo-xblock/hastexo_guacamole_client/tutor:ro
   depends_on:
     - guacd
     - mysql
+  deploy:
+    replicas: {{ HASTEXO_REPLICA_COUNT }}
 
 ############# suspender
 hastexo-xblock-suspender:

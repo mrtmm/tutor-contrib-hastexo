@@ -1,4 +1,4 @@
-Unreleased
+Version 0.2.0 (2022-06-28)
 -----------------------------
 * Add `HASTEXO_ENABLE_SUSPENDER` and `HASTEXO_ENABLE_REAPER` to
   effectively enable/disable the `suspender` and `reaper` deployments

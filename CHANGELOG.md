@@ -1,7 +1,8 @@
 Unreleased
 -----------------------------
-* Add options to enable/disable the `suspender` and
-  `reaper` services.
+* Add `HASTEXO_ENABLE_SUSPENDER` and `HASTEXO_ENABLE_REAPER` to
+  effectively enable/disable the `suspender` and `reaper` deployments
+  (by setting their respective replica counts to 1 or 0).
 * Add an option to scale the number of instances via
   `HASTEXO_REPLICA_COUNT` setting.
 

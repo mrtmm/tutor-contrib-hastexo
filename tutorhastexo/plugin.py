@@ -2,14 +2,11 @@ from .__about__ import __version__
 from glob import glob
 import os
 import pkg_resources
+from tutor import hooks
 
-
-templates = pkg_resources.resource_filename(
-    "tutorhastexo", "templates"
-)
 
 config = {
-    "add": {
+    "unique": {
         "XBLOCK_SETTINGS": {},
         "SECRET_KEY": "{{ 50|random_string }}",
     },
@@ -27,26 +24,56 @@ config = {
     }
 }
 
-hooks = {
-    "build-image": {
-        "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}",
-        "guacd": "{{ HASTEXO_GUACD_DOCKER_IMAGE }}",
-    },
-    "remote-image": {
-        "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}",
-        "guacd": "{{ HASTEXO_GUACD_DOCKER_IMAGE }}",
-    }
+image_tags = {
+    "hastexo": "{{ HASTEXO_DOCKER_IMAGE }}",
+    "guacd": "{{ HASTEXO_GUACD_DOCKER_IMAGE }}",
 }
 
+for image, tag in image_tags.items():
+    hooks.Filters.IMAGES_BUILD.add_item((
+        image,
+        ("plugins", "hastexo", "build", image),
+        tag,
+        (),
+    ))
+    hooks.Filters.IMAGES_PULL.add_item((image, tag))
+    hooks.Filters.IMAGES_PUSH.add_item((image, tag))
 
-def patches():
-    all_patches = {}
-    patches_dir = pkg_resources.resource_filename(
-        "tutorhastexo", "patches"
+# Add the "templates" folder as a template root
+hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
+    pkg_resources.resource_filename("tutorhastexo", "templates")
+)
+# Render the "build" and "apps" folders
+hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
+    [
+        ("hastexo/build", "plugins"),
+        ("hastexo/apps", "plugins"),
+    ],
+)
+# Load patches from files
+for path in glob(
+    os.path.join(
+        pkg_resources.resource_filename("tutorhastexo", "patches"),
+        "*",
     )
-    for path in glob(os.path.join(patches_dir, "*")):
-        with open(path) as patch_file:
-            name = os.path.basename(path)
-            content = patch_file.read()
-            all_patches[name] = content
-    return all_patches
+):
+    with open(path, encoding="utf-8") as patch_file:
+        hooks.Filters.ENV_PATCHES.add_item(
+            (os.path.basename(path), patch_file.read())
+        )
+# Add configuration entries
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [
+        (f"HASTEXO_{key}", value)
+        for key, value in config.get("defaults", {}).items()
+    ]
+)
+hooks.Filters.CONFIG_UNIQUE.add_items(
+    [
+        (f"HASTEXO_{key}", value)
+        for key, value in config.get("unique", {}).items()
+    ]
+)
+hooks.Filters.CONFIG_OVERRIDES.add_items(
+    list(config.get("overrides", {}).items())
+)

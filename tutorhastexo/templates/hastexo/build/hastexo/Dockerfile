@@ -6,5 +6,10 @@ RUN git clone $HASTEXO_XBLOCK_GIT_REPOSITORY -b $HASTEXO_XBLOCK_VERSION ./hastex
 WORKDIR ./hastexo-xblock
 RUN pip install --upgrade pip && \
     pip install -r requirements/base.txt --exists-action w
+
+RUN apt-get update && apt-get install -y supervisor
+RUN mkdir -p /var/supervisor /var/log/supervisor /var/daphne
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 EXPOSE 8095
-CMD daphne -b 0.0.0.0 -p 8095 hastexo_guacamole_client.routing:application
+CMD ["/usr/bin/supervisord"]

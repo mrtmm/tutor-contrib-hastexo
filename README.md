@@ -10,6 +10,24 @@ running the [Hastexo
 XBlock](https://github.com/hastexo/hastexo-xblock) in your Tutor Open
 edX platform.
 
+Version compatibility matrix
+----------------------------
+
+You must install a supported release of this plugin to match the Open
+edX and Tutor version you are deploying. If you are installing this
+plugin from a branch in this Git repository, you must select the
+appropriate one:
+
+| Open edX release | Tutor version     | Hastexo XBlock version | Plugin branch | Plugin release |
+|------------------|-------------------|------------------------|---------------|----------------|
+| Lilac            | `>=12.0, <13`     | Not supported          | Not supported | Not supported  |
+| Maple            | `>=13.2, <14`[^1] | `>=6.0, <7.0`          | `maple`       | 0.3.x          |
+| Nutmeg           | `>=14.0, <15`     | `>=7.0`                | `main`        | 1.x.x          |
+
+[^1]: For Open edX Maple and Tutor 13, you must run version 13.2.0 or
+    later. That is because this plugin uses the Tutor v1 plugin API,
+    [which was introduced with that
+    release](https://github.com/overhangio/tutor/blob/master/CHANGELOG.md#v1320-2022-04-24).
 
 Installation
 ------------

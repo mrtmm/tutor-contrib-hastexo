@@ -1,5 +1,11 @@
 Unreleased
 -----------------------------
+
+* [BREAKING CHANGE] Support Tutor 14 and Open edX Nutmeg. This entails
+  a configuration format change from JSON to YAML, meaning that from
+  version 1.0.0 this plugin only supports Tutor versions from 14.0.0
+  (and with that, only Open edX versions from Nutmeg).
+
 * BREAKING CHANGE: Update the `ASGI_APPLICATION` definition and
    add `LMS_HOST` to `ALLOWED_HOSTS` to support running the 
    `hastexo_guacamole_client` with Channels 3.

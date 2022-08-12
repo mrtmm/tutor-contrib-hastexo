@@ -28,7 +28,7 @@ LOGGING = {
     },
 }
 
-ALLOWED_HOSTS = ''
+ALLOWED_HOSTS = ["{{ LMS_HOST }}"]
 
 DATABASES = {
     'default': {
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'hastexo_guacamole_client'
 ]
 
-ASGI_APPLICATION = 'hastexo_guacamole_client.routing:application'
+ASGI_APPLICATION = '{{ HASTEXO_ASGI_APPLICATION }}'
 
 XBLOCK_SETTINGS = {
     "hastexo": json.loads(

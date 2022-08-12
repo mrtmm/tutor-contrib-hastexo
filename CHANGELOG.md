@@ -1,3 +1,9 @@
+Unreleased
+-----------------------------
+* Make `ASGI_APPLICATION` configurable and add `LMS_HOST` to
+  `ALLOWED_HOSTS` to support running the `hastexo_guacamole_client`
+  with Channels 3.
+
 Version 0.3.0 (2022-06-29)
 -----------------------------
 * Use Tutor v1 plugin API

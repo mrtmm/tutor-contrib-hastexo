@@ -79,6 +79,10 @@ Configuration
   If `False`, run 0 pods, effectively disabling the deployment. (Default: `True`).
 * `HASTEXO_ENABLE_REAPER`: If `True`, run 1 pod in the `hastexo-xblock-reaper` deployment. 
   If `False`, run 0 pods, effectively disabling the deployment. (Default: `True`).
+* `HASTEXO_ASGI_APPLICATION`: Definition for the asgi application,
+  added for backwards compatibility. For the hastexo-xblock<7,
+  set this to `hastexo_guacamole_client.routing:application`, for newer versions, use the default.
+  (Default: `hastexo_guacamole_client.asgi:application`)
 
 Using a custom terminal font
 ----------------------------

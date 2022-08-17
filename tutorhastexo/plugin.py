@@ -21,7 +21,6 @@ config = {
         "REPLICA_COUNT": 1,
         "ENABLE_REAPER": True,
         "ENABLE_SUSPENDER": True,
-        "ASGI_APPLICATION": "hastexo_guacamole_client.asgi:application"
     }
 }
 

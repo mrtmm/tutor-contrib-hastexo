@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'hastexo_guacamole_client'
 ]
 
-ASGI_APPLICATION = '{{ HASTEXO_ASGI_APPLICATION }}'
+ASGI_APPLICATION = 'hastexo_guacamole_client.asgi:application'
 
 XBLOCK_SETTINGS = {
     "hastexo": json.loads(

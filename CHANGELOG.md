@@ -1,4 +1,4 @@
-Unreleased
+Version 1.0.0 (2022-08-19)
 -----------------------------
 
 * BREAKING CHANGE: Support Tutor 14 and Open edX Nutmeg. This entails

@@ -1,3 +1,7 @@
+Unreleased
+-----------------------------
+* Add support for Open edX Olive.
+
 Version 1.0.0 (2022-08-19)
 -----------------------------
 

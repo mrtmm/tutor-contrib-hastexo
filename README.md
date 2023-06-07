@@ -89,9 +89,10 @@ Configuration
   `{}`)
 * `HASTEXO_XBLOCK_VERSION`: The Hastexo XBlock version. (default:
   `stable`)
+* `HASTEXO_GUACD_VERSION`: [guacd version](https://guacamole.apache.org/releases/) (default: `1.5.2`)
 * `HASTEXO_GUACD_DOCKER_IMAGE`:
-  [guacd](https://hub.docker.com/r/guacamole/guacd) version. (default:
-  `guacamole/guacd:1.4.0`)
+  [guacd](https://hub.docker.com/r/guacamole/guacd) Docker image version. (default:
+  `guacamole/guacd:1.5.2`)
 * `HASTEXO_REPLICA_COUNT`: Number of replicas for the `hastexo-xblock` service.
   (default: `1`)
 * `HASTEXO_ENABLE_SUSPENDER`: If `True`, run 1 pod in the `hastexo-xblock-suspender` deployment. 

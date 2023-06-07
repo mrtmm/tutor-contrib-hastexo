@@ -1,3 +1,8 @@
+Unreleased
+-----------------------------
+
+* Bump the default guacd version from 1.4.0 to 1.5.2.
+
 Version 1.1.0 (2023-03-20)
 -----------------------------
 * Add support for Open edX Olive.

@@ -12,7 +12,7 @@ config = {
     },
     "defaults": {
         "VERSION": __version__,
-        "GUACD_VERSION": "1.4.0",
+        "GUACD_VERSION": "1.5.2",
         "GUACD_BASE_IMAGE": "guacamole/guacd:{{ HASTEXO_GUACD_VERSION }}",
         "GUACD_DOCKER_IMAGE": "{{ HASTEXO_GUACD_BASE_IMAGE }}",
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}hastexo:{{ HASTEXO_VERSION }}",

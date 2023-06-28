@@ -1,4 +1,4 @@
-Unreleased
+Version 1.2.0 (2023-06-28)
 -----------------------------
 
 * Bump the default guacd version from 1.4.0 to 1.5.2.

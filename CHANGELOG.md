@@ -1,3 +1,8 @@
+Unreleased
+----------------------------
+* [Bug fix] Install the Hastexo XBlock code in the right context
+  (in the current directory).
+
 Version 1.5.0 (2024-04-05)
 ----------------------------
 * [Enhancement] Support Python 3.12.

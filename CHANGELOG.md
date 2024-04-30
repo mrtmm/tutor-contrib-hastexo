@@ -1,4 +1,4 @@
-Unreleased
+Version 1.5.1 (2024-04-30)
 ----------------------------
 * [Bug fix] Install the Hastexo XBlock code in the right context
   (in the current directory).

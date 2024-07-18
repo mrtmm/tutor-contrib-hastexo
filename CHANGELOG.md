@@ -1,3 +1,7 @@
+Unreleased
+----------------------------
+* [Enhancement] Support Tutor 18 and Open edX Redwood.
+
 Version 1.5.1 (2024-04-30)
 ----------------------------
 * [Bug fix] Install the Hastexo XBlock code in the right context

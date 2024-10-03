@@ -1,3 +1,9 @@
+Unreleased
+----------------------------
+* Drop support for Python 3.8.
+
+When updating your plugin to this version, you'll need to rebuild the image.
+
 Version 1.6.0 (2024-08-07)
 ----------------------------
 * [Enhancement] Support Tutor 18 and Open edX Redwood.

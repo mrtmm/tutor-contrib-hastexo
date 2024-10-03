@@ -22,11 +22,11 @@ appropriate one:
 |------------------|-------------------|------------------------|---------------|----------------|
 | Lilac            | `>=12.0, <13`     | Not supported          | Not supported | Not supported  |
 | Maple            | `>=13.2, <14`[^1] | `>=6.0, <7.0`          | `maple`       | 0.3.x          |
-| Nutmeg           | `>=14.0, <15`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <1.6`  |
-| Olive            | `>=15.0, <16`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <1.6`  |
-| Palm             | `>=16.0, <17`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <1.6`  |
-| Quince           | `>=17.0, <18`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <1.6`  |
-| Redwood          | `>=18.0, <19`     | `>=7.12.0`             | `main`        | `>=1.6.x`      |
+| Nutmeg           | `>=14.0, <15`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <2`    |
+| Olive            | `>=15.0, <16`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <2`    |
+| Palm             | `>=16.0, <17`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <2`    |
+| Quince           | `>=17.0, <18`     | `>=7.0, <7.12`         | `quince`      | `>=1.0, <2`    |
+| Redwood          | `>=18.0, <19`     | `>=7.12.0`             | `main`        | `>=2`          |
 
 [^1]: For Open edX Maple and Tutor 13, you must run version 13.2.0 or
     later. That is because this plugin uses the Tutor v1 plugin API,

@@ -1,5 +1,6 @@
 Unreleased
 ----------------------------
+* Bump the default `guacd` version.
 * Support Tutor 19 and Open edX Sumac.
 
 Version 2.0.0 (2024-10-07)
